@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
+import Galleries from '../components/Galleries.vue'
+import Gallerie from '../components/Gallerie.vue'
 import { globalAuthGuard } from '../guards/authGuard';
 
 Vue.use(VueRouter)
@@ -22,7 +24,19 @@ const routes = [
     name: 'login',
     component: Login,
     meta: { guestRequired: true },
-  }
+  },
+  {
+    path: '/galleries',
+    name: 'Galleries',
+    component: Galleries,
+    meta: { guestRequired: true },
+  },
+  {
+    path: '/galleries/:id',
+    name: 'Gallerie',
+    component: Gallerie,
+    meta: { guestRequired: true },
+  },
 ]
 
 const router = new VueRouter({
