@@ -7,10 +7,20 @@ export const actions = {
     store.commit('setGalleries', galleries);
 
   },
+
+  async getOneGallerie(store, id) {
+    const gallerie = await gallerieService.getGallerie(id);
+
+    store.commit("setOneGallerie", gallerie);
+  },
+
+
   async deleteGallery(store, gallerie) {
       
     await gallerieService.deleteGallery(gallerie.id);
     store.commit('deleteGallery', gallerie);
 
   },
+
+  
 };

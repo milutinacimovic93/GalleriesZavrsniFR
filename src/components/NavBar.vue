@@ -3,9 +3,14 @@
     <div class="nav-box">
       <router-link to="/">Galleries</router-link> |
     </div>
-    <div class="nav-box">
-      <input @input="search" placeholder="search" />
+    <template>
+    <div>
+        <form class="form-inline" @handleSearchText="setSearchText">
+            <input class="form-control" type="search" placeholder="Search galleries..." v-model="search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
     </div>
+</template>
     <div class="nav-box">
       <template v-if="!isAuthenticated">
         <router-link to="/register">Register</router-link> |
@@ -21,19 +26,29 @@
 import { mapActions, mapGetters, mapMutations } from 'vuex';
 export default {
   name: 'nav-bar',
+  data() {
+        return {
+            search: ''
+        }   
+    },
   computed: {
     ...mapGetters('auth', ['isAuthenticated']),
   },
   methods: {
-    search(evt) {
-      this.setSearchTerm(evt.target.value);
-      this.getGalleries();
-    },
+    
     ...mapActions('gallerie', ['getGalleries']),
     ...mapMutations('gallerie', ['setSearchTerm']),
     ...mapActions('auth', ['logout']),
-   
-  },
+    
+    setSearchText(search) {
+      this.searchText = search
+      this.getGalleries({'searchText': this.searchText})
+    },
+    handleSearchText() {
+            this.$emit('handleSearchText', this.search)
+        }
+  }
+     
 };
 </script>
 <style scoped>

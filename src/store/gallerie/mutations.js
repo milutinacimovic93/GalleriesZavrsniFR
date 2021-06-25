@@ -17,4 +17,9 @@ export const mutations = {
 
     },
 
+    setOneGallerie(state, payload) {
+        state.gallerie = payload;
+        console.log(payload)
+      },
+
 };

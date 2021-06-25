@@ -2,9 +2,9 @@ import BaseService from './BaseService';
 
 class GallerieService extends BaseService {
 
-  async getGalleries() {
+  async getGalleries(name) {
     
-    const { data } = await this.http.get('/galleries');
+    const { data } = await this.http.get('/galleries', { params: { name }});
     
     return data;
 
@@ -12,7 +12,7 @@ class GallerieService extends BaseService {
 
   async getGallerie(id) {
     
-    const { data } = await this.http.get(`/galleries/${id}`);
+    const { data }  = await this.http.get(`/galleries/${id}`);
     
     return data;
 

@@ -8,7 +8,11 @@
         Gallerie Name:
         <router-link :to="`/galleries/${gallerie.id}`">
           {{ gallerie.name }}</router-link>
-      </h2>
+      </h2><h4>
+        Author: 
+        <router-link :to="{ name: 'author', params: {id: gallerie.user.id }}">
+          {{gallerie.user.name}}</router-link>
+      </h4>
     <h3>Gallerie image:</h3>
     <img 
     width="150px"
@@ -18,6 +22,7 @@
     <br>
     <div class="description"><b>Description:</b> {{gallerie.description}}</div>
      <p><b>Created_at:</b> {{gallerie.created_at}}</p>
+
  </div>
   </div>
 </template>

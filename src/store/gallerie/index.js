@@ -6,6 +6,7 @@ const store = {
   namespaced: true,
   state: {
     galleries: [],
+    gallerie: {},
     searchTerm: '',
   },
   actions,
