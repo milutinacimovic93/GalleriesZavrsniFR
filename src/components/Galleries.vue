@@ -29,13 +29,14 @@
 <script>
 import { mapActions, mapGetters } from "vuex";
 export default {
+  
   name: 'galleries',
   computed: {
     ...mapGetters('gallerie', ['galleries'] ),
   },
   methods: {
     ...mapActions( 'gallerie',['getGalleries'] ),
-    ...mapActions( 'images',['getImages'] ),  
+    ...mapActions( 'image',['getImages'] ),  
   },
   async created() {
     await this.getGalleries();

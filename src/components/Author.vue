@@ -24,9 +24,8 @@ export default {
   },
   async created() {
     await this.getSingleUser(this.id);
-
   },
 };
 </script>
 
-<style scoped></style>
+<style scoped></style> 
