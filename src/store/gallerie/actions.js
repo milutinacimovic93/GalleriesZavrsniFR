@@ -15,10 +15,10 @@ export const actions = {
   },
 
 
-  async deleteGallery(store, gallerie) {
+  async deleteGallerie(store, gallerie) {
       
-    await gallerieService.deleteGallery(gallerie.id);
-    store.commit('deleteGallery', gallerie);
+    await gallerieService.deleteGallerie(gallerie.id);
+    store.commit('deleteGallerie', gallerie);
 
   },
 
